@@ -1,14 +1,11 @@
-const categories = document.querySelector(`ul#categories`).children;
+const refs = {
+  categories: document.querySelector(`ul#categories`),
+  items: document.querySelectorAll(`.item`),
+};
 
-console.log(`Количество категорий:`, categories.length);
+console.log(`Количество категорий:`, refs.categories.children.length);
 
-const itemEl = document.querySelectorAll(`ul#categories .item`);
-
-// console.log(titleTextEl[0].textContent);
-
-itemEl.forEach(
-  element => (
-    console.log('Категория:', element.querySelector(`h2`).textContent),
-    console.log(`Количество элементов:`, element.querySelectorAll(`li`).length)
-  ),
-);
+refs.items.forEach(element => {
+  console.log('Категория:', element.children[0].textContent);
+  console.log(`Количество элементов:`, element.children[1].children.length);
+});
